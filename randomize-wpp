@@ -1,0 +1,18 @@
+#!/usr/bin/python
+
+
+from PIL import Image
+import random, glob, os, sys
+
+
+if not len(sys.argv) < 1: 
+    for infile in glob.glob('/usr/share/backgrounds/gnome/wallpaper.jpg'):
+        file, ext = os.path.splitext(infile)
+        r = random.randint(0, 100) 
+        g = random.randint(0, 100)
+        b = random.randint(0, 100)
+        wallpp = Image.new("RGB", (1366,768), (r,g,b))
+        wallpp.save(file + ext, 'JPEG')
+        print ('done')
+else:
+    print('not enough input')
